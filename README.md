@@ -8,11 +8,9 @@ Mixed-language PWM playground for the Digilent Zybo board. It combines several P
 - a servo-style output path
 - a standalone servo generator module that is present but currently unused
 
-> Status: source-level review only. There are no Vivado project files or build scripts in this tree, and nothing here has been compiled or simulated as part of this documentation pass.
-
 ## Origin / attribution
 
-This PWM lab appears to be course material built around the FPGA design style of **Pong P. Chu’s** *FPGA Prototyping by ... Examples* books. The `sin_pwm.vhd` source contains the comments `-- Start from slides` and `-- End from slides`, indicating that the sine-ROM section was supplied as lecture material. The Zybo XDC is Digilent’s generic Zybo master constraints file. No author name or license file was present in the original sources.
+This PWM lab appears to be course material built around the FPGA design style of **Pong P. Chu’s** *FPGA Prototyping by ... Examples* books. The `sin_pwm.vhd` source contains the comments `-- Start from slides` and `-- End from slides`, indicating that the sine-ROM section was supplied as lecture material. The Zybo XDC is Digilent’s generic Zybo master constraints file. Refer to the original course or textbook material for licensing terms.
 
 ---
 
@@ -148,9 +146,7 @@ The testbenches currently rely on waveform inspection; they contain no assertion
 
 ---
 
-## Known issues
-
-These are source-level findings, not simulation results.
+## Limitations / TODO
 
 1. **The servo output is not driven by `servo.vhd`.**  
    `top_pwm.sv` instantiates a second `sin_pwm` for `servo_out_reg`. That produces a roughly 100 Hz, 0–100% duty waveform, not a valid 50 Hz / 1–2 ms servo pulse.
